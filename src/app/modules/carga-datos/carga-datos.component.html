@@ -1,0 +1,107 @@
+<div class="carga-page">
+
+    <!-- HEADER -->
+    <section class="page-header">
+        <div class="header-content">
+            <h1>Carga de Datos</h1>
+            <p>Sube un archivo Excel con la información de aulas, profesores y horarios para alimentar el mapa
+                interactivo.</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <section class="carga-content">
+        <div class="carga-container">
+
+            <!-- Zona de carga -->
+            <div class="upload-card">
+                <h2>Subir Archivo Excel</h2>
+                <p class="upload-desc">El archivo debe contener las hojas de Aulas, Profesores y Horarios con el formato
+                    establecido.</p>
+
+                <!-- Drop zone -->
+                <div class="drop-zone" [class.dragging]="arrastrando" [class.has-file]="archivoSeleccionado"
+                    (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+                    <div class="drop-content" *ngIf="!archivoSeleccionado">
+                        <svg class="drop-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Arrastra tu archivo aquí</p>
+                        <span class="drop-or">ó</span>
+                        <label class="btn-select">
+                            Seleccionar Archivo
+                            <input type="file" accept=".xlsx,.xls,.csv" (change)="onFileSelect($event)" hidden>
+                        </label>
+                        <span class="drop-formats">Formatos: .xlsx, .xls, .csv</span>
+                    </div>
+
+                    <!-- Archivo seleccionado -->
+                    <div class="file-preview" *ngIf="archivoSeleccionado">
+                        <div class="file-info">
+                            <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                            <div class="file-details">
+                                <strong>{{ archivoSeleccionado.name }}</strong>
+                                <span>{{ (archivoSeleccionado.size / 1024).toFixed(1) }} KB</span>
+                            </div>
+                        </div>
+                        <button class="btn-remove" (click)="eliminarArchivo()">✕</button>
+                    </div>
+                </div>
+
+                <!-- Botón subir -->
+                <button class="btn-upload" [disabled]="!archivoSeleccionado" (click)="subirArchivo()">
+                    Subir y Procesar
+                    <span class="btn-arrow">→</span>
+                </button>
+            </div>
+
+            <!-- Información lateral -->
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>Formato del Archivo</h3>
+                    <p>El Excel debe incluir las siguientes columnas:</p>
+
+                    <div class="format-section">
+                        <h4>Hoja: Aulas</h4>
+                        <ul>
+                            <li>Código del aula</li>
+                            <li>Módulo o edificio</li>
+                            <li>Capacidad</li>
+                            <li>Tipo (laboratorio, aula, auditorio)</li>
+                        </ul>
+                    </div>
+
+                    <div class="format-section">
+                        <h4>Hoja: Profesores</h4>
+                        <ul>
+                            <li>Nombre completo</li>
+                            <li>Departamento</li>
+                            <li>Correo institucional</li>
+                        </ul>
+                    </div>
+
+                    <div class="format-section">
+                        <h4>Hoja: Horarios</h4>
+                        <ul>
+                            <li>Profesor asignado</li>
+                            <li>Aula asignada</li>
+                            <li>Día y horario</li>
+                            <li>Curso / materia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>

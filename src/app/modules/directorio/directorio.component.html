@@ -1,0 +1,129 @@
+<div class="directorio-page">
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" *ngIf="fotoAbierta" (click)="cerrarFoto()">
+        <div class="lightbox-card" (click)="$event.stopPropagation()">
+            <button class="lightbox-close" (click)="cerrarFoto()">✕</button>
+            <img [src]="fotoAbierta.foto" [alt]="fotoAbierta.nombre">
+            <div class="lightbox-info">
+                <strong>{{ fotoAbierta.nombre }}</strong>
+                <span>{{ fotoAbierta.departamento }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <section class="page-header">
+        <div class="header-content">
+            <h1>Directorio del Campus</h1>
+            <p>Consulta la información de profesores y aulas de la UTN Sede del Pacífico.</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO -->
+    <section class="directorio-content">
+        <div class="directorio-container">
+
+            <!-- Tabs + Filtro -->
+            <div class="toolbar">
+                <div class="tabs">
+                    <button class="tab" [class.active]="tabActivo === 'profesores'"
+                        (click)="tabActivo = 'profesores'; filtro = ''">Profesores</button>
+                    <button class="tab" [class.active]="tabActivo === 'aulas'"
+                        (click)="tabActivo = 'aulas'; filtro = ''">Aulas</button>
+                </div>
+                <div class="search-filter">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Filtrar..." [(ngModel)]="filtro">
+                </div>
+            </div>
+
+            <!-- TABLA PROFESORES -->
+            <div class="table-wrapper" *ngIf="tabActivo === 'profesores'">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Profesor</th>
+                            <th>Departamento</th>
+                            <th>Correo</th>
+                            <th>Ubicación</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prof of profesoresFiltrados" class="clickable" (click)="irAlMapa()">
+                            <td class="td-nombre">
+                                <img [src]="prof.foto" [alt]="prof.nombre" class="avatar-img"
+                                    (click)="abrirFoto(prof, $event)" title="Click para ver foto">
+                                <span>{{ prof.nombre }}</span>
+                            </td>
+                            <td><span class="badge-dept">{{ prof.departamento }}</span></td>
+                            <td class="td-correo">
+                                <a href="mailto:{{ prof.correo }}" (click)="$event.stopPropagation()">{{ prof.correo
+                                    }}</a>
+                            </td>
+                            <td>{{ prof.modulo }}</td>
+                            <td class="td-action">
+                                <span class="link-mapa">Ver en mapa →</span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="profesoresFiltrados.length === 0">
+                            <td colspan="5" class="td-empty">No se encontraron resultados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-footer">
+                    <span>{{ profesoresFiltrados.length }} profesor{{ profesoresFiltrados.length !== 1 ? 'es' : ''
+                        }}</span>
+                    <span class="data-note">Datos de ejemplo</span>
+                </div>
+            </div>
+
+            <!-- TABLA AULAS -->
+            <div class="table-wrapper" *ngIf="tabActivo === 'aulas'">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Módulo</th>
+                            <th>Tipo</th>
+                            <th>Capacidad</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let aula of aulasFiltradas" class="clickable" (click)="irAlMapa()">
+                            <td class="td-codigo"><strong>{{ aula.codigo }}</strong></td>
+                            <td>{{ aula.modulo }}</td>
+                            <td><span class="badge-tipo">{{ aula.tipo }}</span></td>
+                            <td>{{ aula.capacidad }} personas</td>
+                            <td>
+                                <span class="badge-estado" [class.disponible]="aula.estado === 'Disponible'"
+                                    [class.ocupada]="aula.estado === 'Ocupada'">
+                                    {{ aula.estado }}
+                                </span>
+                            </td>
+                            <td class="td-action">
+                                <span class="link-mapa">Ver en mapa →</span>
+                            </td>
+                        </tr>
+                        <tr *ngIf="aulasFiltradas.length === 0">
+                            <td colspan="6" class="td-empty">No se encontraron resultados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="table-footer">
+                    <span>{{ aulasFiltradas.length }} aula{{ aulasFiltradas.length !== 1 ? 's' : '' }}</span>
+                    <span class="data-note">Datos de ejemplo</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>

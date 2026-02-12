@@ -1,17 +1,27 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
+  terminoBusqueda = '';
+
+  constructor(private router: Router) { }
 
   entrarAlMapa(): void {
-    // Navega hacia la ruta definida en app.routes.ts
     this.router.navigate(['/mapa']);
+  }
+
+  buscar(): void {
+    // Por ahora solo redirige al mapa (en el futuro filtrará resultados)
+    if (this.terminoBusqueda.trim()) {
+      this.router.navigate(['/mapa']);
+    }
   }
 }

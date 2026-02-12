@@ -1,16 +1,29 @@
 <div class="map-wrapper">
-  
-  <div id="map"></div>
 
-  <div class="coords-panel">
-    <h3>📍 Coordenadas en Vivo</h3>
-    <p class="instruction">Arrastra los pines azules a su lugar.</p>
-    
-    <textarea readonly rows="10" #codeArea>{{ coordenadasTexto }}</textarea>
-    
-    <button (click)="copiarTexto(codeArea)" class="btn-copy">
-      📋 COPIAR CÓDIGO
-    </button>
+  <!-- POPUP MODAL -->
+  <div class="popup-overlay" *ngIf="puntoSeleccionado" [class.visible]="popupVisible" (click)="cerrarPopup()">
+
+    <div class="popup-card" [class.visible]="popupVisible" (click)="$event.stopPropagation()">
+
+      <button class="popup-close" (click)="cerrarPopup()">✕</button>
+
+      <h2>{{ puntoSeleccionado.nombre }}</h2>
+
+      <button class="btn-explorar" (click)="explorarCampus(puntoSeleccionado)">
+        Explorar Campus
+        <span class="arrow">→</span>
+      </button>
+
+    </div>
   </div>
+
+  <!-- CONTROLES DE ZOOM Y MOVIMIENTO -->
+  <div class="map-controls">
+    <button class="ctrl-btn" (click)="zoomIn()">＋</button>
+    <button class="ctrl-btn" (click)="zoomOut()">－</button>
+    <button class="ctrl-btn" (click)="centrarMapa()">⌂</button>
+  </div>
+
+  <div id="map"></div>
 
 </div>

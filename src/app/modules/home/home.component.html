@@ -1,75 +1,130 @@
-<div class="home-wrapper">
-  
-  <header class="utn-hero">
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <span class="badge-sede">SEDE DEL PACÍFICO</span>
-        <h1 class="slogan-animate">¡Tu futuro es ahora!</h1>
-        <p class="sub-slogan">Explora cada rincón de nuestro campus con tecnología interactiva.</p>
-        
-        <div class="search-box-container" (click)="entrarAlMapa()">
-          <i class="bi bi-search search-icon"></i>
-          <span class="placeholder-text">¿Qué aula o laboratorio buscas hoy?</span>
-          <button class="btn-search">BUSCAR</button>
-        </div>
+<div class="home-page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge-sede">Universidad Técnica Nacional · Sede del Pacífico</span>
+      <h1>Portal de Orientación<br>Universitaria</h1>
+      <p class="hero-desc">
+        Encuentra aulas, laboratorios y servicios del campus con nuestro mapa interactivo.
+      </p>
+
+      <!-- BARRA DE BÚSQUEDA -->
+      <div class="search-bar">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" placeholder="Buscar aula, profesor o área..."
+          [(ngModel)]="terminoBusqueda">
+        <button class="search-btn" (click)="buscar()">Buscar</button>
+      </div>
+
+      <button class="btn-cta" (click)="entrarAlMapa()">
+        Explorar el Mapa del Campus
+        <span class="cta-arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- BARRA DE ACCESOS RÁPIDOS -->
+  <section class="accesos-rapidos">
+    <div class="accesos-container">
+      <div class="acceso" (click)="entrarAlMapa()">
+        <div class="acceso-icon">🗺️</div>
+        <span>Mapa Interactivo</span>
+      </div>
+      <div class="acceso-sep"></div>
+      <div class="acceso">
+        <div class="acceso-icon">📍</div>
+        <span>Puntos de Interés</span>
+      </div>
+      <div class="acceso-sep"></div>
+      <div class="acceso disabled-link">
+        <div class="acceso-icon">🔭</div>
+        <span>Vista 360°</span>
+        <small>Próximamente</small>
+      </div>
+      <div class="acceso-sep"></div>
+      <div class="acceso disabled-link">
+        <div class="acceso-icon">📅</div>
+        <span>Horarios</span>
+        <small>Próximamente</small>
       </div>
     </div>
-  </header>
+  </section>
 
-  <div class="features-strip">
-    <div class="feature-item">
-      <i class="bi bi-building"></i>
-      <span>3 Módulos Principales</span>
-    </div>
-    <div class="feature-divider"></div>
-    <div class="feature-item">
-      <i class="bi bi-pc-display"></i>
-      <span>20+ Laboratorios</span>
-    </div>
-    <div class="feature-divider"></div>
-    <div class="feature-item">
-      <i class="bi bi-wifi"></i>
-      <span>Zona Wi-Fi Total</span>
-    </div>
-  </div>
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="seccion-principal">
+    <div class="contenido-grid">
 
-  <main class="container-fluid pe-5 content-section">
-    <div class="row g-4 justify-content-center">
-      
-      <div class="col-lg-5 col-md-6">
-        <div class="utn-card card-primary" (click)="entrarAlMapa()">
-          <div class="card-bg-icon"><i class="bi bi-geo-alt"></i></div>
-          <div class="card-content">
-            <div class="icon-box">
-              <i class="bi bi-map-fill"></i>
-            </div>
-            <div class="text-box">
-              <h3>MAPA INTERACTIVO</h3>
-              <p>Navegación 360°, ubicación de aulas y oficinas administrativas en tiempo real.</p>
-            </div>
-            <div class="action-arrow">
-              <i class="bi bi-arrow-right-circle-fill"></i>
-            </div>
+      <!-- Card principal: Mapa -->
+      <div class="card-utn card-destacada" (click)="entrarAlMapa()">
+        <div class="card-img-area">
+          <img src="assets/images/Dron/foto-dron-utn.jpg" alt="Vista aérea del campus UTN">
+          <div class="card-img-badge">DISPONIBLE</div>
+        </div>
+        <div class="card-info">
+          <h3>Mapa Interactivo del Campus</h3>
+          <p>
+            Explora el campus de la UTN Sede del Pacífico con nuestro mapa aéreo de alta resolución.
+            Ubica módulos, laboratorios, la soda y más puntos de interés.
+          </p>
+          <span class="card-link">Ir al Mapa →</span>
+        </div>
+      </div>
+
+      <!-- Cards secundarias -->
+      <div class="cards-secundarias">
+        <div class="card-utn card-secundaria">
+          <div class="card-sec-icon">🔬</div>
+          <div class="card-sec-info">
+            <h4>Laboratorios</h4>
+            <p>20+ laboratorios especializados en TI, Electrónica, Química, Física y más.</p>
+          </div>
+        </div>
+
+        <div class="card-utn card-secundaria">
+          <div class="card-sec-icon">🏛️</div>
+          <div class="card-sec-info">
+            <h4>3 Módulos Principales</h4>
+            <p>Edificios de aulas equipadas con tecnología moderna y áreas administrativas.</p>
+          </div>
+        </div>
+
+        <div class="card-utn card-secundaria">
+          <div class="card-sec-icon">📶</div>
+          <div class="card-sec-info">
+            <h4>Zona Wi-Fi Total</h4>
+            <p>Conectividad inalámbrica en todo el campus para la comunidad universitaria.</p>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-5 col-md-6">
-        <div class="utn-card card-secondary disabled">
-          <div class="card-bg-icon"><i class="bi bi-calendar-event"></i></div>
-          <div class="card-content">
-            <div class="icon-box gray">
-              <i class="bi bi-clock-history"></i>
-            </div>
-            <div class="text-box">
-              <h3>HORARIOS DE AULAS</h3>
-              <p>Consulta la disponibilidad y ocupación de los recintos universitarios.</p>
-            </div>
-            <span class="badge-soon">PRÓXIMAMENTE</span>
-          </div>
+    </div>
+  </section>
+
+  <!-- FOOTER INSTITUCIONAL -->
+  <footer class="footer-utn">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/images/logos/logo-blanco.svg" alt="UTN" class="footer-logo">
+        <div>
+          <strong>Universidad Técnica Nacional</strong>
+          <span>Sede del Pacífico · Puntarenas, Costa Rica</span>
         </div>
       </div>
-
+      <div class="footer-links">
+        <a href="https://utn.ac.cr" target="_blank">Sitio Web Oficial</a>
+        <a href="https://utn.ac.cr/admision" target="_blank">Admisión</a>
+        <a href="https://utn.ac.cr/carreras" target="_blank">Carreras</a>
+      </div>
     </div>
-  </main>
+    <div class="footer-bottom">
+      <p>© 2026 UTN Maps · Portal de Orientación Universitaria · Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
 </div>
