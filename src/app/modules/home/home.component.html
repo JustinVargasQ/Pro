@@ -1,0 +1,75 @@
+<div class="home-wrapper">
+  
+  <header class="utn-hero">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <span class="badge-sede">SEDE DEL PACÍFICO</span>
+        <h1 class="slogan-animate">¡Tu futuro es ahora!</h1>
+        <p class="sub-slogan">Explora cada rincón de nuestro campus con tecnología interactiva.</p>
+        
+        <div class="search-box-container" (click)="entrarAlMapa()">
+          <i class="bi bi-search search-icon"></i>
+          <span class="placeholder-text">¿Qué aula o laboratorio buscas hoy?</span>
+          <button class="btn-search">BUSCAR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="features-strip">
+    <div class="feature-item">
+      <i class="bi bi-building"></i>
+      <span>3 Módulos Principales</span>
+    </div>
+    <div class="feature-divider"></div>
+    <div class="feature-item">
+      <i class="bi bi-pc-display"></i>
+      <span>20+ Laboratorios</span>
+    </div>
+    <div class="feature-divider"></div>
+    <div class="feature-item">
+      <i class="bi bi-wifi"></i>
+      <span>Zona Wi-Fi Total</span>
+    </div>
+  </div>
+
+  <main class="container-fluid pe-5 content-section">
+    <div class="row g-4 justify-content-center">
+      
+      <div class="col-lg-5 col-md-6">
+        <div class="utn-card card-primary" (click)="entrarAlMapa()">
+          <div class="card-bg-icon"><i class="bi bi-geo-alt"></i></div>
+          <div class="card-content">
+            <div class="icon-box">
+              <i class="bi bi-map-fill"></i>
+            </div>
+            <div class="text-box">
+              <h3>MAPA INTERACTIVO</h3>
+              <p>Navegación 360°, ubicación de aulas y oficinas administrativas en tiempo real.</p>
+            </div>
+            <div class="action-arrow">
+              <i class="bi bi-arrow-right-circle-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-6">
+        <div class="utn-card card-secondary disabled">
+          <div class="card-bg-icon"><i class="bi bi-calendar-event"></i></div>
+          <div class="card-content">
+            <div class="icon-box gray">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="text-box">
+              <h3>HORARIOS DE AULAS</h3>
+              <p>Consulta la disponibilidad y ocupación de los recintos universitarios.</p>
+            </div>
+            <span class="badge-soon">PRÓXIMAMENTE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

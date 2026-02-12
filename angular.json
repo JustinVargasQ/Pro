@@ -90,6 +90,7 @@
                 "input": "public"
               }
             ],
+            
             "styles": [
               "src/styles.scss"
             ],
@@ -98,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

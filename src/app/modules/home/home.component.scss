@@ -1,0 +1,213 @@
+$azul-utn: #00205B;
+$naranja-utn: #F05E23;
+$gris-claro: #f4f6f8;
+
+.home-wrapper {
+  background-color: $gris-claro;
+  min-height: 100vh;
+}
+
+/* --- HERO SECTION --- */
+.utn-hero {
+  position: relative;
+  height: 550px; /* Más alto para mayor impacto */
+  background: url('/foto-dron-utn.jpg') center/cover no-repeat fixed; /* Efecto Parallax fijo */
+  overflow: hidden;
+
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(0, 32, 91, 0.9) 0%, rgba(0, 32, 91, 0.6) 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    color: white;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeInUp 1s ease-out; /* Animación de entrada */
+  }
+
+  .badge-sede {
+    background-color: $naranja-utn;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Myriad Pro', sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .slogan-animate {
+    font-family: 'Brush-tip Terrence', cursive; /* Fuente oficial slogan */
+    font-size: 5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  .sub-slogan {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+  }
+}
+
+/* --- BARRA DE BÚSQUEDA FLOTANTE --- */
+.search-box-container {
+  background: white;
+  border-radius: 50px;
+  padding: 8px 8px 8px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover { transform: scale(1.02); }
+
+  .search-icon { color: $azul-utn; font-size: 1.2rem; margin-right: 10px; }
+  .placeholder-text { color: #888; font-family: 'Myriad Pro', sans-serif; flex-grow: 1; text-align: left; }
+  
+  .btn-search {
+    background-color: $azul-utn;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-family: 'Century Gothic', sans-serif;
+    transition: background 0.3s;
+    &:hover { background-color: $naranja-utn; }
+  }
+}
+
+/* --- FEATURES STRIP --- */
+.features-strip {
+  background: white;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
+  margin-top: -30px; /* Flota sobre el Hero */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    color: $azul-utn;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    i { font-size: 1.5rem; color: $naranja-utn; margin-right: 10px; }
+  }
+
+  .feature-divider { width: 1px; height: 30px; background: #ddd; }
+}
+
+/* --- CARDS MODERNAS --- */
+.content-section { padding-top: 60px; padding-bottom: 80px; }
+
+.utn-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border-left: 5px solid transparent;
+
+  &.card-primary { border-left-color: $naranja-utn; }
+  &.card-secondary { border-left-color: #999; opacity: 0.8; }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,32,91,0.15);
+    .action-arrow { transform: translateX(5px); color: $naranja-utn; }
+  }
+
+  .card-bg-icon {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 10rem;
+    opacity: 0.05;
+    color: $azul-utn;
+    transform: rotate(-15deg);
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .icon-box {
+    width: 70px; height: 70px;
+    background: rgba(0, 32, 91, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: $azul-utn;
+    margin-right: 20px;
+    &.gray { background: #eee; color: #888; }
+  }
+
+  .text-box {
+    flex-grow: 1;
+    h3 { font-family: 'Century Gothic', sans-serif; font-weight: bold; color: $azul-utn; margin-bottom: 5px; font-size: 1.2rem; }
+    p { font-size: 0.9rem; color: #666; margin: 0; line-height: 1.4; }
+  }
+
+  .action-arrow {
+    font-size: 2rem;
+    color: $azul-utn;
+    transition: all 0.3s;
+  }
+
+  .badge-soon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #eee;
+    color: #666;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+}
+
+/* Animación Keyframe */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .utn-hero { height: 450px; }
+  .slogan-animate { font-size: 3rem; }
+  .features-strip { flex-direction: column; gap: 10px; margin-top: 20px; }
+  .feature-divider { display: none; }
+}

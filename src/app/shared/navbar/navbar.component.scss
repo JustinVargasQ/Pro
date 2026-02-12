@@ -1,0 +1,122 @@
+/* Variables de Identidad Institucional */
+$azul-utn: #00205B;
+$naranja-utn: #F05E23;
+$gris-divider: #BCBDBF;
+
+.utn-header-main {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Barra de Utilidades (Azul) */
+.top-utility-bar {
+  background-color: $azul-utn;
+  padding: 8px 0;
+  
+  .utility-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .utility-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-family: 'Myriad Pro', sans-serif;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  .social-flex {
+    display: flex;
+    gap: 15px;
+    a { color: white; font-size: 0.9rem; &:hover { color: $naranja-utn; } }
+  }
+}
+
+/* Barra Principal (Blanca) */
+.main-navigation {
+  background-color: #ffffff;
+  border-bottom: 5px solid $azul-utn;
+  padding: 12px 0;
+
+  .nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Estética de la Firma Oficial */
+.branding-firma {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .logo-nav { height: 60px; margin-right: 15px; }
+  
+  .firma-divider {
+    width: 2px;
+    height: 40px;
+    background-color: $gris-divider;
+    margin-right: 15px;
+  }
+
+  .firma-text {
+    display: flex;
+    flex-direction: column;
+    .u-name { 
+      font-family: 'Helvetica Neue', sans-serif; 
+      font-weight: bold; 
+      color: $azul-utn; 
+      font-size: 1.1rem; 
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .site-name { 
+      font-family: 'Myriad Pro', sans-serif; 
+      color: #666; 
+      font-size: 0.85rem; 
+    }
+  }
+}
+
+/* Menú de Navegación */
+.project-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  gap: 25px;
+
+  li a {
+    text-decoration: none;
+    color: $azul-utn;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+
+    &:hover, &.active { color: $naranja-utn; }
+  }
+
+  .btn-external a {
+    background-color: $azul-utn;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    &:hover { background-color: $naranja-utn; }
+  }
+}

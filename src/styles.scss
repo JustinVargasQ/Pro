@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables del Manual de Identidad UTN */
+:root {
+  --utn-azul: #00205B;
+  --utn-naranja: #F05E23;
+  --utn-gris-claro: #f8f9fa;
+  --bs-gutter-x: 1.5rem;
+  --bs-body-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Configuración de Contenedores (Código que pediste) */
+.container-fluid {
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pe-5 {
+  padding-right: 3rem !important;
+}
+
+body {
+  margin: 0;
+  font-family: var(--bs-body-font-family);
+  background-color: #fff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}

@@ -1,0 +1,16 @@
+<div class="map-wrapper">
+  
+  <div id="map"></div>
+
+  <div class="coords-panel">
+    <h3>📍 Coordenadas en Vivo</h3>
+    <p class="instruction">Arrastra los pines azules a su lugar.</p>
+    
+    <textarea readonly rows="10" #codeArea>{{ coordenadasTexto }}</textarea>
+    
+    <button (click)="copiarTexto(codeArea)" class="btn-copy">
+      📋 COPIAR CÓDIGO
+    </button>
+  </div>
+
+</div>
